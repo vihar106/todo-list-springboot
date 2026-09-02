@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Todo List</h1>
+        <p>Manage your tasks</p>
+      </div>
+      <button id="addTaskBtn" class="primary">+ Add Task</button>
+    </header>
+
+    <section class="toolbar">
+      <input id="searchInput" type="search" placeholder="Search tasks...">
+      <select id="statusFilter">
+        <option value="">All Status</option>
+        <option value="1">TODO</option>
+        <option value="2">IN_PROGRESS</option>
+        <option value="3">DONE</option>
+      </select>
+      <select id="priorityFilter">
+        <option value="">All Priority</option>
+        <option value="1">LOW</option>
+        <option value="2">MEDIUM</option>
+        <option value="3">HIGH</option>
+      </select>
+      <button id="refreshBtn" class="secondary">Refresh</button>
+    </section>
+
+    <div id="message"></div>
+    <section id="taskList" class="task-grid"></section>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Task</h2>
+        <button id="closeModal" class="close">&times;</button>
+      </div>
+
+      <form id="taskForm">
+        <input type="hidden" id="taskId">
+
+        <label>Title *</label>
+        <input id="title" maxlength="150" required>
+
+        <label>Description</label>
+        <textarea id="description" rows="4"></textarea>
+
+        <div class="two-col">
+          <div>
+            <label>Status *</label>
+            <select id="statusId" required>
+              <option value="1">TODO</option>
+              <option value="2">IN_PROGRESS</option>
+              <option value="3">DONE</option>
+            </select>
+          </div>
+          <div>
+            <label>Priority *</label>
+            <select id="priorityId" required>
+              <option value="1">LOW</option>
+              <option value="2">MEDIUM</option>
+              <option value="3">HIGH</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label>Due Date</label>
+            <input id="dueDate" type="date">
+          </div>
+          <div>
+            <label>Completion Date</label>
+            <input id="completionDate" type="date">
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label>Created By *</label>
+            <input id="createdBy" required>
+          </div>
+          <div>
+            <label>Updated By</label>
+            <input id="updatedBy">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancelBtn" class="secondary">Cancel</button>
+          <button type="submit" class="primary">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
